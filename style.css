@@ -92,7 +92,7 @@ header .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
   font-size: 2rem;
   line-height: 1;
   color: #555;
@@ -820,14 +820,76 @@ header .container {
 
 /* 1900 px resolution */
 @media screen and (min-width: 1900px) {
+  .container {
+    max-width: 800px;
+  }
   .game {
     position: relative;
     margin: 0 auto;
-    margin-top: 35%;
+    margin-top: 28%;
     background: #9a9a95;
     padding: 7px;
     display: inline-block;
     border-radius: 3px;
     box-sizing: border-box;
   }
+  .scores{
+    margin-top: 20px;
+  }
+  .score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0.5rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: #555;
+  }
+  .score-container.best-score {
+    color: #9a9a95;
+  }
+  .score {
+    margin-left: 1rem;
+    position: relative;
+    font-weight: bold;
+    font-size: 4rem;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+  /* .tile-container {
+    border-radius: 6px;
+    position: relative;
+    width: 900px;
+    height: 900px;
+  }
+  .tile,
+  .background {
+    display: block;
+    color: #f8ffe5;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .add {
+    font-size: 5rem;
+    color: white;
+    position: absolute;
+    top: -150px;
+  }
+  .background {
+    z-index: 1;
+    text-align: center;
+    /* border: 7px solid rgba(255, 255, 255, 0.18); */
+  /* }
+  .tile {
+    font-size: 1.8rem;
+    align-items: center;
+    transition: 110ms ease-in-out;
+    border-radius: 10px;
+    border: 7px solid rgba(255, 255, 255, 0.18);
+    box-sizing: border-box;
+  } */ */
 }
