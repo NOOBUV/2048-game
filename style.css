@@ -28,6 +28,7 @@ html {
   overflow: hidden;
   background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 strong {
   font-weight: bold;
