@@ -7,6 +7,19 @@ const endDiv = document.getElementById("end");
 const size = 4;
 let nextId = 1;
 let score = 0;
+let mute = false;
+let audioObj = new Audio("./assets/merge.wav");
+let gameOverSound = new Audio("./assets/over.mp3");
+let general = new Audio("./assets/btn-click.wav");
+var myAudio = new Audio("./assets/game.mp3");
+myAudio.addEventListener(
+  "ended",
+  function () {
+    this.currentTime = 0;
+    this.play();
+  },
+  false
+);
 
 function initGame() {
   game = Array(size * size).fill(null); // 4 x 4 grid, represented as an array
@@ -32,7 +45,9 @@ function removeElements(mergedTiles) {
     for (let id of tile.mergedIds) {
       const currentElm = document.getElementById(id);
       positionTile(tile, currentElm);
-      currentElm.classList.add("tile--shrink");
+      if (!mute) {
+        audioObj.play();
+      }
       setTimeout(() => {
         currentElm.remove();
       }, 100);
@@ -270,7 +285,7 @@ function getPosition() {
 
   let pos = Math.floor(Math.random() * window.innerWidth);
 
-  if (pos > l - 150 && pos < r + 100) pos = 40;
+  if (pos > l - 150 && pos < r + 100) pos = Math.floor(Math.random() * 200);
 
   return pos;
 }
@@ -351,6 +366,10 @@ function handleTouchMove(evt) {
   addRandomNumber();
   updateDOM(prevGame, game);
   if (gameOver()) {
+    if (!mute) {
+      gameOverSound.play();
+      myAudio.pause();
+    }
     setTimeout(() => {
       endDiv.classList.add("active");
     }, 800);
@@ -397,6 +416,10 @@ function handleKeypress(evt) {
     addRandomNumber();
     updateDOM(prevGame, game);
     if (gameOver()) {
+      if (!mute) {
+        gameOverSound.play();
+        myAudio.pause();
+      }
       setTimeout(() => {
         endDiv.classList.add("active");
       }, 800);
@@ -419,3 +442,74 @@ function newGameStart() {
 }
 
 newGameStart();
+
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    if (!mute) myAudio.play();
+  }
+};
+
+window.onload = function (e) {
+  modal.style.display = "block";
+};
+
+function changeSoundSettings() {
+  // console.log(document.querySelector("#soundBtn").innerHTML);
+  // document.querySelector("#soundBtn").innerHTML = `${
+  //   document.querySelector("#soundBtn").innerHTML ===
+  //   '<i class="fas fa-volume-mute"></i>'
+  //     ? '<i class="fas fa-volume-down"></i>'
+  //     : '<i class="fas fa-volume-mute"></i>'
+  // }`;
+
+  if (mute) {
+    document.querySelector("#soundBtn").innerHTML =
+      '<i class="fas fa-volume-down"></i>';
+    myAudio.play();
+    mute = !mute;
+  } else {
+    document.querySelector("#soundBtn").innerHTML =
+      '<i class="fas fa-volume-mute"></i>';
+    myAudio.pause();
+    mute = !mute;
+  }
+
+  // if (
+  //   document.querySelector("#soundBtn").innerHTML ===
+  //   '<i class="fas fa-volume-mute"></i>'
+  // )
+  //   mute = true;
+  // else mute = false;
+
+  // mute = !mute;
+}
+
+document.querySelector("#myBtn").addEventListener("click", function () {
+  if (!mute) general.play();
+});
+document.querySelector("#soundBtn").addEventListener("click", function () {
+  if (!mute) general.play();
+});
+document.querySelector("#restart").addEventListener("click", function () {
+  if (!mute) general.play();
+});

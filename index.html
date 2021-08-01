@@ -6,19 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
+    <!--       Font-awesome Link        -->
+    <script
+      src="https://kit.fontawesome.com/a1c21ab3f6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
-      <div
-        style="
-          border-radius: 50%;
-          position: absolute;
-          top: 100px;
-          width: 100px;
-          height: 100px;
-          background-image: url('/assets/bubble.png');
-        "
-      ></div>
       <div class="scores">
         <div class="score-container best-score">
           best:
@@ -57,11 +52,35 @@
         </div>
       </div>
 
-      <!-- <div class="not-recommended">
-        <button class="btn not-recommended__item js-restart-btn" id="restart">
-          Restart Game
+      <!-- Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>HOW TO PLAY</h2>
+          </div>
+          <div class="modal-body">
+            <p>
+              Use your arrow keys to move the tiles. When two tiles slide into
+              each other, they merge into one!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-recommended">
+        <button
+          class="res-btn not-recommended__item js-restart-btn"
+          id="restart"
+        >
+          <i class="fas fa-redo fa-flip-horizontal"></i></button
+        >"
+        <button id="soundBtn" onclick="changeSoundSettings()" class="info-btn">
+          <i class="fas fa-volume-down"></i>
         </button>
-      </div> -->
+        <button id="myBtn" class="info-btn">i</button>
+      </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
