@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!--       Font-awesome Link        -->
+    <script
+      src="https://kit.fontawesome.com/a1c21ab3f6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="scores">
+        <div class="score-container best-score">
+          <span class="rainbow-text">High-Score:</span>
+          <div class="score">
+            <div id="bestScore">0</div>
+          </div>
+        </div>
+        <div class="score-container">
+          <span class="rainbow-text">score:</span>
+
+          <div class="score">
+            <div id="score">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="add" id="add"></div>
+      <div class="game">
+        <div id="tile-container" class="tile-container"></div>
+        <div class="end" id="end">
+          Game Over
+          <div class="monkey">
+            <img
+              src="https://media.tenor.com/images/8d63484c68a8328f419c0c9ea5b94fb2/tenor.gif"
+            />
+          </div>
+
+          <button
+            class="btn not-recommended__item js-restart-btn"
+            id="try-again"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>HOW TO PLAY</h2>
+          </div>
+          <div class="modal-body">
+            <p>
+              Use your arrow keys to move the tiles. When two tiles slide into
+              each other, they merge into one!
+            </p>
+            <div class="info-div">
+              <div class="info-div-row">
+                Press
+                <div
+                  class="res-btn not-recommended__item js-restart-btn"
+                  id="restart"
+                >
+                  <i class="fas fa-redo fa-flip-horizontal"></i>
+                </div>
+                to Restart the game.
+              </div>
+              <div class="info-div-row">
+                Press
+                <div
+                  class="res-btn not-recommended__item js-restart-btn"
+                  id="restart"
+                >
+                  <i class="fas fa-volume-down"></i>
+                </div>
+                to turn off the sound.
+              </div>
+              <div class="info-div-row">
+                Press
+                <div
+                  class="res-btn not-recommended__item js-restart-btn"
+                  id="restart"
+                >
+                  i
+                </div>
+                to get the Instructions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-recommended">
+        <button
+          class="res-btn not-recommended__item js-restart-btn"
+          id="restart"
+        >
+          <i class="fas fa-redo fa-flip-horizontal"></i>
+        </button>
+        <button id="soundBtn" onclick="changeSoundSettings()" class="info-btn">
+          <i class="fas fa-volume-down"></i>
+        </button>
+        <button id="myBtn" class="info-btn">i</button>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="./script.js"></script>
+</html>

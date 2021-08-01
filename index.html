@@ -4,116 +4,207 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-size: 0;
+      }
+      canvas {
+        background: black;
+        width: 100vw;
+        height: 100vh;
+        background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
+      }
+      input {
+        width: 250px;
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        bottom: 35px;
+        left: calc(50% - 125px);
+        background: none;
+        color: white;
+        font-size: 30px;
+        font-family: arial;
+        text-align: center;
+        border: 1px solid white;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      p {
+        position: fixed;
+        left: 0;
+        bottom: 5px;
+        color: #fff;
+        z-index: 10;
+        font-size: 16px;
+        font-family: Helvetica, Verdana, sans-serif;
+        opacity: 0.5;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+
+      .play-btn {
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        bottom: 100px;
+        right: 100px;
+        z-index: 100;
+        width: 250px;
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        bottom: 35px;
+        left: calc(50% - 125px);
+        background: none;
+        color: white;
+        font-size: 30px;
+        font-family: arial;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        opacity: 1;
+      }
+    </style>
+
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <!--       Font-awesome Link        -->
-    <script
-      src="https://kit.fontawesome.com/a1c21ab3f6.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
-    <div class="container">
-      <div class="scores">
-        <div class="score-container best-score">
-          <span class="rainbow-text">High-Score:</span>
-          <div class="score">
-            <div id="bestScore">0</div>
-          </div>
-        </div>
-        <div class="score-container">
-          <span class="rainbow-text">score:</span>
+    <!-- Edit the text with whatever you want :) -->
+    <!-- Works with emojis too ! -->
+    <canvas id="scene"></canvas>
+    <input id="copy" type="text" style="display: none" value="DJP 2048" />
 
-          <div class="score">
-            <div id="score">0</div>
-          </div>
-        </div>
-      </div>
-      <div class="add" id="add"></div>
-      <div class="game">
-        <div id="tile-container" class="tile-container"></div>
-        <div class="end" id="end">
-          <!-- <span class="rainbow-text">Game over</span> -->
-          Game over
-          <div class="monkey">
-            <img
-              src="https://media.tenor.com/images/8d63484c68a8328f419c0c9ea5b94fb2/tenor.gif"
-            />
-          </div>
+    <a class="play-btn" href="./game.html">Play</a>
 
-          <button
-            class="btn not-recommended__item js-restart-btn"
-            id="try-again"
-          >
-            <!-- <span class="rainbow-text">Try Again</span> -->
-            Try Again
-          </button>
-        </div>
-      </div>
+    <script>
+      var canvas = document.querySelector("#scene"),
+        ctx = canvas.getContext("2d"),
+        particles = [],
+        amount = 0,
+        mouse = { x: 0, y: 0 },
+        radius = 1;
 
-      <!-- Modal -->
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>HOW TO PLAY</h2>
-          </div>
-          <div class="modal-body">
-            <p>
-              Use your arrow keys to move the tiles. When two tiles slide into
-              each other, they merge into one!
-            </p>
-            <div class="info-div">
-              <div class="info-div-row">
-                Press
-                <div
-                  class="res-btn not-recommended__item js-restart-btn"
-                  id="restart"
-                >
-                  <i class="fas fa-redo fa-flip-horizontal"></i>
-                </div>
-                to Restart the game.
-              </div>
-              <div class="info-div-row">
-                Press
-                <div
-                  class="res-btn not-recommended__item js-restart-btn"
-                  id="restart"
-                >
-                  <i class="fas fa-volume-down"></i>
-                </div>
-                to turn off the sound.
-              </div>
-              <div class="info-div-row">
-                Press
-                <div
-                  class="res-btn not-recommended__item js-restart-btn"
-                  id="restart"
-                >
-                  i
-                </div>
-                to get the Instructions.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      var colors = ["#468966", "#FFF0A5", "#FFB03B", "#B64926", "#8E2800"];
 
-      <div class="not-recommended">
-        <button
-          class="res-btn not-recommended__item js-restart-btn"
-          id="restart"
-        >
-          <i class="fas fa-redo fa-flip-horizontal"></i>
-        </button>
-        <button id="soundBtn" onclick="changeSoundSettings()" class="info-btn">
-          <i class="fas fa-volume-down"></i>
-        </button>
-        <button id="myBtn" class="info-btn">i</button>
-      </div>
-    </div>
+      var copy = document.querySelector("#copy");
+
+      var ww = (canvas.width = window.innerWidth);
+      var wh = (canvas.height = window.innerHeight);
+
+      function Particle(x, y) {
+        this.x = Math.random() * ww;
+        this.y = Math.random() * wh;
+        this.dest = {
+          x: x,
+          y: y,
+        };
+        this.r = Math.random() * 5 + 2;
+        this.vx = (Math.random() - 0.5) * 20;
+        this.vy = (Math.random() - 0.5) * 20;
+        this.accX = 0;
+        this.accY = 0;
+        this.friction = Math.random() * 0.05 + 0.94;
+
+        this.color = colors[Math.floor(Math.random() * 6)];
+      }
+
+      Particle.prototype.render = function () {
+        this.accX = (this.dest.x - this.x) / 1000;
+        this.accY = (this.dest.y - this.y) / 1000;
+        this.vx += this.accX;
+        this.vy += this.accY;
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+
+        this.x += this.vx;
+        this.y += this.vy;
+
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, Math.PI * 2, false);
+        ctx.fill();
+
+        var a = this.x - mouse.x;
+        var b = this.y - mouse.y;
+
+        var distance = Math.sqrt(a * a + b * b);
+        if (distance < radius * 70) {
+          this.accX = (this.x - mouse.x) / 100;
+          this.accY = (this.y - mouse.y) / 100;
+          this.vx += this.accX;
+          this.vy += this.accY;
+        }
+      };
+
+      function onMouseMove(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      }
+
+      function onTouchMove(e) {
+        if (e.touches.length > 0) {
+          mouse.x = e.touches[0].clientX;
+          mouse.y = e.touches[0].clientY;
+        }
+      }
+
+      function onTouchEnd(e) {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      }
+
+      function initScene() {
+        ww = canvas.width = window.innerWidth;
+        wh = canvas.height = window.innerHeight;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = "bold " + ww / 10 + "px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(copy.value, ww / 2, wh / 2);
+
+        var data = ctx.getImageData(0, 0, ww, wh).data;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = "screen";
+
+        particles = [];
+        for (var i = 0; i < ww; i += Math.round(ww / 150)) {
+          for (var j = 0; j < wh; j += Math.round(ww / 150)) {
+            if (data[(i + j * ww) * 4 + 3] > 150) {
+              particles.push(new Particle(i, j));
+            }
+          }
+        }
+        amount = particles.length;
+      }
+
+      function onMouseClick() {
+        radius++;
+        if (radius === 5) {
+          radius = 0;
+        }
+      }
+
+      function render(a) {
+        requestAnimationFrame(render);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < amount; i++) {
+          particles[i].render();
+        }
+      }
+
+      copy.addEventListener("keyup", initScene);
+      window.addEventListener("resize", initScene);
+      window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("touchmove", onTouchMove);
+      window.addEventListener("click", onMouseClick);
+      window.addEventListener("touchend", onTouchEnd);
+      initScene();
+      requestAnimationFrame(render);
+    </script>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="./script.js"></script>
 </html>

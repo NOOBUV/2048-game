@@ -75,7 +75,7 @@ h1 {
   /* padding-bottom: 3.5rem; */
   flex: 1;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   text-align: center;
 }
 header .container {
@@ -371,7 +371,6 @@ div .res-btn {
   font-family: inherit;
   font-size: 1rem;
   border: none;
-  background: #1b9aaa;
   letter-spacing: 1px;
   color: white;
   font-weight: 300;
@@ -383,9 +382,11 @@ div .res-btn {
   background: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: 0.5s;
 }
 .btn:hover {
-  background-color: #14727e;
+  background: rgba(255, 255, 255, 0.76);
+  color: rgb(110, 110, 110);
 }
 .btn:active {
   background-color: #0d4a52;
@@ -898,43 +899,7 @@ div .res-btn {
     vertical-align: middle;
     text-align: right;
   }
-
-  /* .tile-container {
-    border-radius: 6px;
-    position: relative;
-    width: 900px;
-    height: 900px;
-  }
-  .tile,
-  .background {
-    display: block;
-    color: #f8ffe5;
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  .add {
-    font-size: 5rem;
-    color: white;
-    position: absolute;
-    top: -150px;
-  }
-  .background {
-    z-index: 1;
-    text-align: center;
-    /* border: 7px solid rgba(255, 255, 255, 0.18); */
-  /* }
-  .tile {
-    font-size: 1.8rem;
-    align-items: center;
-    transition: 110ms ease-in-out;
-    border-radius: 10px;
-    border: 7px solid rgba(255, 255, 255, 0.18);
-    box-sizing: border-box;
-  } */
-  */ .info-btn {
+  .info-btn {
     font-size: 2.5rem;
     width: 70px;
     height: 70px;
@@ -952,3 +917,5 @@ div .res-btn {
     height: 50px;
   }
 }
+
+/* Particle Js */
