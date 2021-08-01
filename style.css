@@ -26,7 +26,7 @@ html {
   color: #555;
   /* background: #f8ffe5; */
   overflow: hidden;
-  background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871392509773901854/background2.png");
+  background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
   background-size: cover;
 }
 strong {
@@ -278,6 +278,10 @@ header .container {
   border-radius: 3px;
   border: 1px solid transparent;
   cursor: pointer;
+  width: 140px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .btn:hover {
   background-color: #14727e;
@@ -623,7 +627,3 @@ header .container {
     box-sizing: border-box;
   }
 }
-
-/* end button animation starts*/
-
-/* end button animation ends */
