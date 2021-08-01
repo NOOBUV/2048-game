@@ -28,7 +28,7 @@ function initGame() {
 
 function initBestScore() {
   bestScore = localStorage.getItem("bestScore") || 0;
-  bestScoreDiv.innerHTML = bestScore;
+  bestScoreDiv.innerHTML = `<p class='rainbow-text'>${bestScore}</p>`;
 }
 
 function updateDOM(before, after) {
@@ -252,7 +252,7 @@ function shiftGameLeft(gameGrid) {
   }
 
   if (totalAdd > 0) {
-    scoreDiv.innerHTML = score;
+    scoreDiv.innerHTML = `<p class='rainbow-text'>${score}</p>`;
     addDiv.innerHTML = `+${totalAdd}`;
     addDiv.classList.add("active");
     let div = document.createElement("div");
@@ -432,7 +432,7 @@ function newGameStart() {
   document.getElementById("tile-container").innerHTML = "";
   endDiv.classList.remove("active");
   score = 0;
-  scoreDiv.innerHTML = score;
+  scoreDiv.innerHTML = `<p class='rainbow-text'>${score}</p>`;
   initGame();
   drawBackground();
   const previousGame = [...game];
@@ -460,6 +460,8 @@ btn.onclick = function () {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
   modal.style.display = "none";
+  if (!mute) general.play();
+  if (!mute) myAudio.play();
 };
 
 // When the user clicks anywhere outside of the modal, close it

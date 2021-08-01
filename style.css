@@ -72,7 +72,7 @@ h1 {
 }
 .container {
   margin: 0 auto;
-  padding-bottom: 3.5rem;
+  /* padding-bottom: 3.5rem; */
   flex: 1;
   width: 100%;
   max-width: 550px;
@@ -85,6 +85,7 @@ header .container {
 }
 
 .scores {
+  max-height: 100px;
   display: flex;
   justify-content: center;
 }
@@ -342,6 +343,14 @@ header .container {
   font-size: 3rem;
   margin: 1rem 0;
 }
+
+div .res-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
 .res-btn {
   font-family: inherit;
   font-size: 1rem;
@@ -749,6 +758,16 @@ header .container {
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: white;
+
+  width: 65%;
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* Add Animation */
@@ -793,6 +812,12 @@ header .container {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .modal-body {
@@ -818,6 +843,23 @@ header .container {
   cursor: pointer;
 }
 
+.info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-div-row {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.info-div-row > * {
+  margin: 10px;
+}
+
 /* 1900 px resolution */
 @media screen and (min-width: 1900px) {
   .container {
@@ -833,7 +875,7 @@ header .container {
     border-radius: 3px;
     box-sizing: border-box;
   }
-  .scores{
+  .scores {
     margin-top: 20px;
   }
   .score-container {
@@ -891,5 +933,22 @@ header .container {
     border-radius: 10px;
     border: 7px solid rgba(255, 255, 255, 0.18);
     box-sizing: border-box;
-  } */ */
+  } */
+  */ .info-btn {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .res-btn {
+    width: 70px;
+    height: 70px;
+    padding-top: 14px;
+  }
+
+  .fa-redo {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+  }
 }
