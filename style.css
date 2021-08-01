@@ -26,7 +26,7 @@ html {
   color: #555;
   /* background: #f8ffe5; */
   overflow: hidden;
-  background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871392509773901854/background2.png");
+  background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
   background-size: cover;
 }
 strong {
@@ -72,10 +72,10 @@ h1 {
 }
 .container {
   margin: 0 auto;
-  padding-bottom: 3.5rem;
+  /* padding-bottom: 3.5rem; */
   flex: 1;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   text-align: center;
 }
 header .container {
@@ -83,7 +83,9 @@ header .container {
   padding: 2rem 4rem;
   max-width: 900px;
 }
+
 .scores {
+  max-height: 100px;
   display: flex;
   justify-content: center;
 }
@@ -91,8 +93,8 @@ header .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.8rem;
-  font-size: 1.2rem;
+  margin: 1rem 0.5rem;
+  font-size: 2rem;
   line-height: 1;
   color: #555;
 }
@@ -103,10 +105,85 @@ header .container {
   margin-left: 1rem;
   position: relative;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 3rem;
   vertical-align: middle;
   text-align: right;
 }
+/* rainbow text element */
+
+.rainbow-text {
+  /* Create a conic gradient. */
+  /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
+  background: #ca4246;
+  background-color: #ca4246;
+  background: conic-gradient(
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  );
+
+  /* Set thee background size and repeat properties. */
+  background-size: 57%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-animation-rev 0.5s ease forwards;
+
+  cursor: pointer;
+}
+
+/* Add animation on hover. */
+.rainbow-text:hover {
+  animation: rainbow-text-animation 0.5s ease forwards;
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-animation {
+  0% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-animation-rev {
+  0% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+}
+/* rainbow text element ends */
 .game {
   position: relative;
   margin: 0 auto;
@@ -266,11 +343,34 @@ header .container {
   font-size: 3rem;
   margin: 1rem 0;
 }
+
+div .res-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.res-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 300;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+}
+
 .btn {
   font-family: inherit;
   font-size: 1rem;
   border: none;
-  background: #1b9aaa;
   letter-spacing: 1px;
   color: white;
   font-weight: 300;
@@ -278,9 +378,15 @@ header .container {
   border-radius: 3px;
   border: 1px solid transparent;
   cursor: pointer;
+  width: 140px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: 0.5s;
 }
 .btn:hover {
-  background-color: #14727e;
+  background: rgba(255, 255, 255, 0.76);
+  color: rgb(110, 110, 110);
 }
 .btn:active {
   background-color: #0d4a52;
@@ -293,7 +399,13 @@ header .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.not-recommended > * {
+  margin: 10px;
 }
 .not-recommended * + * {
   margin-left: 10px;
@@ -618,16 +730,192 @@ header .container {
   position: absolute;
   width: 180px;
 }
+
+/* Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  color: white;
+
+  width: 65%;
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.info-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  font-size: 1.3rem;
+  width: 35px;
+  height: 35px;
+  outline: none;
+  border-radius: 100%;
+  font-family: "Arvo", Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-div-row {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.info-div-row > * {
+  margin: 10px;
+}
+
 /* 1900 px resolution */
 @media screen and (min-width: 1900px) {
+  .container {
+    max-width: 800px;
+  }
   .game {
     position: relative;
     margin: 0 auto;
-    margin-top: 35%;
+    margin-top: 28%;
     background: #9a9a95;
     padding: 7px;
     display: inline-block;
     border-radius: 3px;
     box-sizing: border-box;
   }
+  .scores {
+    margin-top: 20px;
+  }
+  .score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0.5rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: #555;
+  }
+  .score-container.best-score {
+    color: #9a9a95;
+  }
+  .score {
+    margin-left: 1rem;
+    position: relative;
+    font-weight: bold;
+    font-size: 4rem;
+    vertical-align: middle;
+    text-align: right;
+  }
+  .info-btn {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .res-btn {
+    width: 70px;
+    height: 70px;
+    padding-top: 14px;
+  }
+
+  .fa-redo {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+  }
 }
+
+/* Particle Js */
