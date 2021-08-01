@@ -113,7 +113,6 @@ header .container {
   margin-top: 10%;
   padding: 7px;
   display: inline-block;
-  border-radius: 3px;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -143,13 +142,6 @@ header .container {
   z-index: 1;
   text-align: center;
   border: 7px solid rgba(255, 255, 255, 0.18);
-  /* background-color: #f8ffe5; */
-  /* background: rgba(255, 255, 255, 0.25); */
-  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 .tile {
   opacity: 0;
@@ -162,9 +154,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 ); */
   font-size: 1.8rem;
   align-items: center;
   transition: 110ms ease-in-out;
-  border-radius: 3px;
-  /* border: 7px solid #9a9a95; */
-
+  border-radius: 10px;
   border: 7px solid rgba(255, 255, 255, 0.18);
   box-sizing: border-box;
 }
@@ -218,24 +208,11 @@ border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 .add {
   font-size: 5rem;
-  color: black;
+  color: white;
   position: absolute;
   top: -100px;
 }
-/* .add.active {
-  animation: add 0.8s ease-in-out;
-} */
 
-/* @keyframes add {
-  0% {
-    opacity: 1;
-    top: 0;
-  }
-  100% {
-    opacity: 0;
-    top: -100%;
-  }
-} */
 @keyframes pop {
   0% {
     transform: scale(0.5);
@@ -276,6 +253,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 ); */
   color: white;
   font-size: 2rem;
   transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 .end btn {
   margin-top: 1rem;
@@ -558,23 +536,31 @@ border: 1px solid rgba( 255, 255, 255, 0.18 ); */
   -moz-border-radius: 50%;
   border-radius: 50%;
 
-  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
+  /* -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
     inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
   -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
     inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
-    inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+    inset 0px 10px 30px 5px rgba(255, 255, 255, 1); */
+
+  /* background-image: url("./assets/bubble.png");
+  background-size: contain; */
 
   height: 200px;
   position: absolute;
   top: 0px;
   width: 200px;
-  background: #00b4ff;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: -200px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(4px);
+  /* border-radius: 10px; */
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .bubble:after {
