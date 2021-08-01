@@ -53,23 +53,40 @@
         bottom: 100px;
         right: 100px;
         z-index: 100;
-        width: 250px;
-        height: 40px;
+        width: 150px;
+        height: 150px;
         line-height: 40px;
         position: absolute;
         bottom: 35px;
-        left: calc(50% - 125px);
-        background: none;
+        left: calc(50% - 100px);
+        background-image: url("assets/bubble.png");
+        background-size: cover;
+        border-radius: 50%;
         color: white;
-        font-size: 30px;
+        font-size: 3rem;
         font-family: arial;
         text-align: center;
         text-decoration: none;
         color: white;
         opacity: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .play-btn:hover {
+        font-size: 3.5rem;
+      }
+      @media screen and (min-width: 1900px) {
+        .play-btn {
+          left: calc(46.5%);
+          bottom: 5%;
+        }
       }
     </style>
-
+    <script
+      src="https://kit.fontawesome.com/a1c21ab3f6.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
   <body>
@@ -78,7 +95,9 @@
     <canvas id="scene"></canvas>
     <input id="copy" type="text" style="display: none" value="DJP 2048" />
 
-    <a class="play-btn" href="./game.html">Play</a>
+    <a class="play-btn" href="./game.html"
+      ><i class="fa fa-play" aria-hidden="true"></i
+    ></a>
 
     <script>
       var canvas = document.querySelector("#scene"),
