@@ -246,8 +246,12 @@ function shiftGameLeft(gameGrid) {
     div.classList.add("add");
     div.innerText = totalAdd;
     div.style.position = "absolute";
+    // div.style.backgroundImage = "url('./assets/bubble.png')";
     div.style.left = `${getPosition()}px`;
-    console.log(div.style.left);
+    // div.style.zIndex = "-1";
+    setTimeout(function () {
+      div.remove();
+    }, 7000);
     document.body.appendChild(div);
     setTimeout(function () {
       addDiv.classList.remove("active");
@@ -266,8 +270,7 @@ function getPosition() {
 
   let pos = Math.floor(Math.random() * window.innerWidth);
 
-  if (pos > l - 150 && pos < r + 100) pos = pos + r;
-  if (pos > r + 100) pos = pos + 100;
+  if (pos > l - 150 && pos < r + 100) pos = 40;
 
   return pos;
 }
