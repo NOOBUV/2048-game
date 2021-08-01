@@ -240,6 +240,15 @@ function shiftGameLeft(gameGrid) {
     scoreDiv.innerHTML = score;
     addDiv.innerHTML = `+${totalAdd}`;
     addDiv.classList.add("active");
+    let div = document.createElement("div");
+    div.classList.add("bubble");
+    div.classList.add("x10");
+    div.classList.add("add");
+    div.innerText = totalAdd;
+    div.style.position = "absolute";
+    div.style.left = `${getPosition()}px`;
+    console.log(div.style.left);
+    document.body.appendChild(div);
     setTimeout(function () {
       addDiv.classList.remove("active");
     }, 800);
@@ -249,6 +258,18 @@ function shiftGameLeft(gameGrid) {
     }
   }
   return newGameState;
+}
+
+function getPosition() {
+  let l = document.querySelector(".game").getBoundingClientRect().x;
+  let r = l + document.querySelector(".game").getBoundingClientRect().width;
+
+  let pos = Math.floor(Math.random() * window.innerWidth);
+
+  if (pos > l - 150 && pos < r + 100) pos = pos + r;
+  if (pos > r + 100) pos = pos + 100;
+
+  return pos;
 }
 
 function shiftGameUp(gameGrid) {
