@@ -439,6 +439,7 @@ function newGameStart() {
   addRandomNumber();
   addRandomNumber();
   updateDOM(previousGame, game);
+  gameOverSound.pause();
 }
 
 newGameStart();
@@ -490,6 +491,7 @@ function changeSoundSettings() {
   } else {
     document.querySelector("#soundBtn").innerHTML =
       '<i class="fas fa-volume-mute"></i>';
+    gameOverSound.pause();
     myAudio.pause();
     mute = !mute;
   }
