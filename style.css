@@ -208,7 +208,7 @@ header .container {
 }
 .add {
   font-size: 5rem;
-  color: black;
+  color: white;
   position: absolute;
   top: -100px;
 }
@@ -536,23 +536,31 @@ header .container {
   -moz-border-radius: 50%;
   border-radius: 50%;
 
-  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
+  /* -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
     inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
   -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
     inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2),
-    inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+    inset 0px 10px 30px 5px rgba(255, 255, 255, 1); */
+
+  /* background-image: url("./assets/bubble.png");
+  background-size: contain; */
 
   height: 200px;
   position: absolute;
   top: 0px;
   width: 200px;
-  background: #00b4ff;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: -200px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(4px);
+  /* border-radius: 10px; */
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .bubble:after {
@@ -623,7 +631,3 @@ header .container {
     box-sizing: border-box;
   }
 }
-
-/* end button animation starts*/
-
-/* end button animation ends */
