@@ -867,14 +867,7 @@ div .res-btn {
     max-width: 800px;
   }
   .game {
-    position: relative;
-    margin: 0 auto;
-    margin-top: 28%;
-    background: #9a9a95;
-    padding: 7px;
-    display: inline-block;
-    border-radius: 3px;
-    box-sizing: border-box;
+    margin-top: 26%;
   }
   .scores {
     margin-top: 20px;
