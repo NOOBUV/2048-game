@@ -57,7 +57,8 @@
         height: 100px;
         bottom: 90px;
         left: calc(50% - 50px);
-        background-image: url("assets/bubble.png");
+        /* background-image: url("assets/bubble.png"); */
+        border: 3px solid white;
         background-size: cover;
         border-radius: 50%;
         font-size: 2rem;
@@ -75,29 +76,18 @@
         position: relative;
         left: 2%;
       }
-      @media screen and (min-width: 1900px) {
-        .play-btn {
-          left: calc(46.5%);
-          bottom: 5%;
-        }
-      }
     </style>
     <script
       src="https://kit.fontawesome.com/a1c21ab3f6.js"
       crossorigin="anonymous"
     ></script>
-    <<<<<<< HEAD
     <title>DJP 2048</title>
-    =======
-    <title>DJP-2048</title>
-    >>>>>>> 68d11fc339a6028956d8794e6a3bc8235538079f
   </head>
   <body>
     <!-- Edit the text with whatever you want :) -->
     <!-- Works with emojis too ! -->
     <canvas id="scene"></canvas>
     <input id="copy" type="text" style="display: none" value="2048" />
-
     <a class="play-btn" href="./game.html"
       ><i class="fa fa-play" aria-hidden="true"></i
     ></a>

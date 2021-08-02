@@ -14,11 +14,11 @@ let score = 0;
 let mute = false;
 let audioObj = new Audio("./assets/merge.wav");
 let gameOverSound = new Audio("./assets/over.mp3");
-let general = new Audio("./assets/btn-click.wav");
+let general = new Audio("./assets/merge.wav");
 var myAudio = new Audio("./assets/game.mp3");
-myAudio.volume = 0.2;
+myAudio.volume = 0.07;
 gameOverSound.volume = 0.2;
-general.volume = 0.2;
+general.volume = 0.5;
 myAudio.addEventListener(
   "ended",
   function () {
