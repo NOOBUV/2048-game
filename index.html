@@ -27,7 +27,8 @@
         background: none;
         color: white;
         font-size: 30px;
-        font-family: arial;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         text-align: center;
         border: 1px solid white;
         background: rgba(255, 255, 255, 0.2);
@@ -48,34 +49,27 @@
 
       .play-btn {
         cursor: pointer;
-        color: white;
         position: absolute;
-        bottom: 100px;
-        right: 100px;
+        color: rgb(255, 255, 255);
         z-index: 100;
-        width: 150px;
-        height: 150px;
-        line-height: 40px;
-        position: absolute;
-        bottom: 35px;
-        left: calc(50% - 100px);
+        width: 100px;
+        height: 100px;
+        bottom: 90px;
+        left: calc(50% - 50px);
         background-image: url("assets/bubble.png");
         background-size: cover;
         border-radius: 50%;
-        color: white;
-        font-size: 3rem;
-        font-family: arial;
-        text-align: center;
+        font-size: 2rem;
         text-decoration: none;
-        color: white;
-        opacity: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 0.1s;
       }
       .play-btn:hover {
-        font-size: 3.5rem;
+        font-size: 2.2rem;
       }
+
       @media screen and (min-width: 1900px) {
         .play-btn {
           left: calc(46.5%);
@@ -87,13 +81,13 @@
       src="https://kit.fontawesome.com/a1c21ab3f6.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>DJP 2048</title>
   </head>
   <body>
     <!-- Edit the text with whatever you want :) -->
     <!-- Works with emojis too ! -->
     <canvas id="scene"></canvas>
-    <input id="copy" type="text" style="display: none" value="DJP 2048" />
+    <input id="copy" type="text" style="display: none" value="2048" />
 
     <a class="play-btn" href="./game.html"
       ><i class="fa fa-play" aria-hidden="true"></i
@@ -105,9 +99,9 @@
         particles = [],
         amount = 0,
         mouse = { x: 0, y: 0 },
-        radius = 1;
+        radius = 5;
 
-      var colors = ["#468966", "#FFF0A5", "#FFB03B", "#B64926", "#8E2800"];
+      var colors = ["#FF01FF", "#FF24FF", "#FF49FF", "#FF6DFF", "#FF92FF"];
 
       var copy = document.querySelector("#copy");
 
@@ -122,13 +116,13 @@
           y: y,
         };
         this.r = Math.random() * 5 + 2;
-        this.vx = (Math.random() - 0.5) * 20;
-        this.vy = (Math.random() - 0.5) * 20;
+        this.vx = (Math.random() - 0.1) * 5;
+        this.vy = (Math.random() - 0.1) * 5;
         this.accX = 0;
         this.accY = 0;
-        this.friction = Math.random() * 0.05 + 0.94;
+        this.friction = Math.random() * 0.02 + 0.95;
 
-        this.color = colors[Math.floor(Math.random() * 6)];
+        this.color = colors[Math.floor(Math.random() * 100)];
       }
 
       Particle.prototype.render = function () {
@@ -151,7 +145,7 @@
         var b = this.y - mouse.y;
 
         var distance = Math.sqrt(a * a + b * b);
-        if (distance < radius * 70) {
+        if (distance < radius * 25) {
           this.accX = (this.x - mouse.x) / 100;
           this.accY = (this.y - mouse.y) / 100;
           this.vx += this.accX;
@@ -182,7 +176,7 @@
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.font = "bold " + ww / 10 + "px sans-serif";
+        ctx.font = "bold " + ww / 4 + "px sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(copy.value, ww / 2, wh / 2);
 
