@@ -492,7 +492,8 @@ function changeSoundSettings() {
   if (mute) {
     document.querySelector("#soundBtn").innerHTML =
       '<i class="fas fa-volume-down"></i>';
-    myAudio.play();
+    if (gameOver()) gameOverSound.play();
+    else myAudio.play();
     mute = !mute;
   } else {
     document.querySelector("#soundBtn").innerHTML =
