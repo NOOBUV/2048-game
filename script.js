@@ -443,6 +443,7 @@ function newGameStart() {
   addRandomNumber();
   updateDOM(previousGame, game);
   gameOverSound.pause();
+  if (!mute) myAudio.play();
 }
 
 newGameStart();
