@@ -1,3 +1,7 @@
+document.querySelector("#soundBtn").addEventListener("click", function () {
+  general.play();
+  console.log("hello");
+});
 let game = null;
 let bestScore = 0;
 const scoreDiv = document.getElementById("score");
@@ -16,6 +20,15 @@ myAudio.volume = 0.2;
 gameOverSound.volume = 0.2;
 general.volume = 0.2;
 myAudio.addEventListener(
+  "ended",
+  function () {
+    this.currentTime = 0;
+    this.play();
+  },
+  false
+);
+
+gameOverSound.addEventListener(
   "ended",
   function () {
     this.currentTime = 0;
@@ -128,6 +141,7 @@ function drawGame(tiles, isNew) {
 }
 
 function gameOver() {
+  // return true;
   if (game.filter((number) => number === null).length === 0) {
     const sameNeighbors = game.find((tile, i) => {
       const isRightSame =
@@ -513,12 +527,13 @@ function changeSoundSettings() {
   // mute = !mute;
 }
 
+function playGeneralMusic() {
+  if (!mute) general.play();
+}
+
 document.querySelector("#myBtn").addEventListener("click", function () {
   if (!mute) general.play();
 });
 document.querySelector("#soundBtn").addEventListener("click", function () {
-  if (!mute) general.play();
-});
-document.querySelector("#restart").addEventListener("click", function () {
-  if (!mute) general.play();
+  general.play();
 });
