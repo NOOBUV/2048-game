@@ -913,7 +913,10 @@ div .res-btn {
 
 @media only screen and (max-width: 600px) {
   body {
-    overflow: none;
+    overflow: hidden;
+  }
+  .container {
+    width: 100%;
   }
   .not-recommended {
     display: flex;
