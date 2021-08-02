@@ -23,10 +23,7 @@ html {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Arvo", Helvetica, sans-serif;
-  font-family: 15px;
   color: #555;
-  /* background: #f8ffe5; */
   overflow: hidden;
   background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
   background-size: cover;
@@ -97,8 +94,8 @@ header .container {
   justify-content: center;
   align-items: center;
   margin: 1rem 3rem;
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 3rem;
+  line-height: 1.5;
   color: #555;
 }
 .score-container.best-score {
@@ -388,8 +385,7 @@ div .res-btn {
   transition: 0.5s;
 }
 .btn:hover {
-  background: rgba(255, 255, 255, 0.76);
-  color: rgb(110, 110, 110);
+  color: rgb(215, 215, 215);
 }
 .btn:active {
   background-color: #0d4a52;
@@ -739,7 +735,7 @@ div .res-btn {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 150px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -751,6 +747,7 @@ div .res-btn {
 
 /* Modal Content */
 .modal-content {
+  text-align: center;
   position: relative;
   background-color: #fefefe;
   letter-spacing: 1px;
@@ -758,7 +755,7 @@ div .res-btn {
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  /* width: 20%; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -766,7 +763,7 @@ div .res-btn {
   animation-duration: 0.4s;
   color: white;
   font-size: 1.5rem;
-  width: 65%;
+  width: 35%;
   background: rgba(110, 110, 110, 0.5);
   box-shadow: 0 8px 32px 0 rgba(80, 80, 80, 0.4);
   backdrop-filter: blur(4px);
@@ -815,7 +812,7 @@ div .res-btn {
 
 .modal-header {
   padding: 1px 16px;
-
+  text-align: center;
   letter-spacing: 2px;
   word-spacing: 10px;
   background-color: #5cb85c;
@@ -834,7 +831,7 @@ div .res-btn {
 }
 
 .modal-body {
-  padding-top: 10px;
+  padding: 10px;
   border: 2px solid rgba(255, 255, 255, 0.18);
   border-radius: 0 0 10px 10px;
 }
@@ -848,7 +845,7 @@ div .res-btn {
 }
 
 p {
-  margin: 5px;
+  margin: 7px;
   padding: 0;
 }
 
@@ -866,6 +863,7 @@ p {
 }
 
 .info-div {
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -873,7 +871,7 @@ p {
 }
 
 .info-div-row {
-  margin: 5px;
+  /* margin: 5px; */
   display: flex;
   align-items: center;
 }
@@ -971,7 +969,6 @@ p {
     justify-content: center;
     align-items: center;
     margin: 1rem 0.5rem;
-    font-size: 1.2rem;
     line-height: 1;
     color: #555;
   }
@@ -982,7 +979,6 @@ p {
     margin-left: 1rem;
     position: relative;
     font-weight: bold;
-    font-size: 2rem;
     vertical-align: middle;
     text-align: right;
   }
