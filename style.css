@@ -868,14 +868,7 @@ div .res-btn {
     max-width: 800px;
   }
   .game {
-    position: relative;
-    margin: 0 auto;
-    margin-top: 28%;
-    background: #9a9a95;
-    padding: 7px;
-    display: inline-block;
-    border-radius: 3px;
-    box-sizing: border-box;
+    margin-top: 26%;
   }
   .scores {
     margin-top: 20px;
@@ -919,4 +912,55 @@ div .res-btn {
   }
 }
 
-/* Particle Js */
+@media only screen and (max-width: 900px) {
+  body {
+    overflow: none;
+  }
+  .not-recommended {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -87%;
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow: none;
+  }
+  .not-recommended {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -87%;
+    right: 20px;
+  }
+  .scores {
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  .score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: #555;
+  }
+  .score-container.best-score {
+    color: #9a9a95;
+  }
+  .score {
+    margin-left: 1rem;
+    position: relative;
+    font-weight: bold;
+    font-size: 2rem;
+    vertical-align: middle;
+    text-align: right;
+  }
+}
