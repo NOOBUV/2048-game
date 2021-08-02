@@ -75,7 +75,7 @@ h1 {
   /* padding-bottom: 3.5rem; */
   flex: 1;
   width: 100%;
-  max-width: 750px;
+  max-width: 800px;
   text-align: center;
 }
 header .container {
@@ -365,6 +365,10 @@ div .res-btn {
   border-radius: 100%;
   width: 35px;
   height: 35px;
+}
+.res-btn:hover {
+  color: rgb(215, 215, 215);
+  border: 1px solid rgb(215, 215, 215);
 }
 
 .btn {
@@ -861,7 +865,10 @@ p {
   font-family: "Arvo", Helvetica, sans-serif;
   cursor: pointer;
 }
-
+.info-btn:hover {
+  color: rgb(215, 215, 215);
+  border: 1px solid rgb(215, 215, 215);
+}
 .info-div {
   padding: 15px;
   display: flex;
@@ -917,7 +924,8 @@ p {
     height: 70px;
   }
 
-  .res-btn {
+  div .res-btn {
+    font-size: 2.5rem;
     width: 70px;
     height: 70px;
     padding-top: 14px;
@@ -927,6 +935,20 @@ p {
     font-size: 2.5rem;
     width: 50px;
     height: 50px;
+  }
+  .not-recommended .fa-volume-down {
+    font-size: 2.5rem;
+  }
+  .up {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  .close {
+    font-size: 3rem;
+  }
+  .modal-content {
+    font-size: 2rem;
+    word-spacing: 3px;
   }
 }
 
