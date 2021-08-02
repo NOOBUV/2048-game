@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Arvo");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
 * {
   box-sizing: border-box;
+  font-family: "Chewy", cursive;
 }
 a {
   color: #1b9aaa;
@@ -751,6 +753,8 @@ div .res-btn {
 .modal-content {
   position: relative;
   background-color: #fefefe;
+  letter-spacing: 1px;
+  word-spacing: 2px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -761,11 +765,10 @@ div .res-btn {
   animation-name: animatetop;
   animation-duration: 0.4s;
   color: white;
-
+  font-size: 1.5rem;
   width: 65%;
-
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(110, 110, 110, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(80, 80, 80, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
@@ -805,31 +808,48 @@ div .res-btn {
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: rgb(215, 215, 215);
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 1px 16px;
+
+  letter-spacing: 2px;
+  word-spacing: 10px;
   background-color: #5cb85c;
   color: white;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-header h2 {
+  padding: 0;
+  margin: 15px;
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 0 10px 10px;
 }
 
 .modal-footer {
   padding: 2px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+
   background-color: #5cb85c;
   color: white;
+}
+
+p {
+  margin: 5px;
+  padding: 0;
 }
 
 .info-btn {
@@ -853,13 +873,13 @@ div .res-btn {
 }
 
 .info-div-row {
-  margin: 10px;
+  margin: 5px;
   display: flex;
   align-items: center;
 }
 
 .info-div-row > * {
-  margin: 10px;
+  margin: 5px;
 }
 
 /* 1900 px resolution */
