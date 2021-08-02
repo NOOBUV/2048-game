@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Arvo");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
 * {
   box-sizing: border-box;
+  font-family: "Chewy", cursive;
 }
 a {
   color: #1b9aaa;
@@ -21,10 +23,7 @@ html {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Arvo", Helvetica, sans-serif;
-  font-family: 15px;
   color: #555;
-  /* background: #f8ffe5; */
   overflow: hidden;
   background-image: url("https://cdn.discordapp.com/attachments/871308833790779443/871430633988186152/background2.png");
   background-size: cover;
@@ -95,8 +94,8 @@ header .container {
   justify-content: center;
   align-items: center;
   margin: 1rem 3rem;
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 3rem;
+  line-height: 1.5;
   color: #555;
 }
 .score-container.best-score {
@@ -386,8 +385,7 @@ div .res-btn {
   transition: 0.5s;
 }
 .btn:hover {
-  background: rgba(255, 255, 255, 0.76);
-  color: rgb(110, 110, 110);
+  color: rgb(215, 215, 215);
 }
 .btn:active {
   background-color: #0d4a52;
@@ -737,7 +735,7 @@ div .res-btn {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 150px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -749,23 +747,25 @@ div .res-btn {
 
 /* Modal Content */
 .modal-content {
+  text-align: center;
   position: relative;
   background-color: #fefefe;
+  letter-spacing: 1px;
+  word-spacing: 2px;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  /* width: 20%; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
   color: white;
-
-  width: 65%;
-
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  font-size: 1.5rem;
+  width: 35%;
+  background: rgba(110, 110, 110, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(80, 80, 80, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
@@ -805,31 +805,48 @@ div .res-btn {
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: rgb(215, 215, 215);
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 1px 16px;
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 10px;
   background-color: #5cb85c;
   color: white;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-header h2 {
+  padding: 0;
+  margin: 15px;
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 0 10px 10px;
 }
 
 .modal-footer {
   padding: 2px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+
   background-color: #5cb85c;
   color: white;
+}
+
+p {
+  margin: 7px;
+  padding: 0;
 }
 
 .info-btn {
@@ -846,6 +863,7 @@ div .res-btn {
 }
 
 .info-div {
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -853,13 +871,13 @@ div .res-btn {
 }
 
 .info-div-row {
-  margin: 10px;
+  /* margin: 5px; */
   display: flex;
   align-items: center;
 }
 
 .info-div-row > * {
-  margin: 10px;
+  margin: 5px;
 }
 
 /* 1900 px resolution */
@@ -951,7 +969,6 @@ div .res-btn {
     justify-content: center;
     align-items: center;
     margin: 1rem 0.5rem;
-    font-size: 1.2rem;
     line-height: 1;
     color: #555;
   }
@@ -962,7 +979,6 @@ div .res-btn {
     margin-left: 1rem;
     position: relative;
     font-weight: bold;
-    font-size: 2rem;
     vertical-align: middle;
     text-align: right;
   }
