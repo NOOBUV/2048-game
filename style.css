@@ -911,6 +911,20 @@ div .res-btn {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  body {
+    overflow: none;
+  }
+  .not-recommended {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -87%;
+    right: 20px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   body {
     overflow: hidden;
@@ -923,7 +937,7 @@ div .res-btn {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: -85%;
+    bottom: -87%;
     right: 20px;
   }
   .scores {
